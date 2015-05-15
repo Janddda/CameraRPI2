@@ -27,3 +27,6 @@ Instructions:
   ~~~~~
   ./camtest
   ~~~~~
+
+## Known issues
+There is a bug in the OpenCV library as bundled with raspbian, which causes the function `cvCreateCameraCapture` to return a non-NULL value, even on failure. This means that if the camera is already being used, `CAMInit` will segfault.
