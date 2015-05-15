@@ -2,7 +2,7 @@
  *  @file camera_rpi2.c
  *  @brief Camera routines for the Raspberry Pi 2, modded for the EyeBot.
  *  Can be compiled with:
- *  gcc -std=c99 -Wall -pedantic `pkg-config --cflags opencv` *.c `pkg-config --libs opencv`  
+ *  gcc -std=c99 -Wall -pedantic `pkg-config --cflags opencv` *.c `pkg-config --libs opencv` -lm 
  *  @author Jeremy Tan, 20933708 (HEXACOPTER GROUP) 
  */
 
@@ -24,7 +24,8 @@ int CAMInit (CAMMode mode) {
             return CAM_FAILURE;
         }
     }
-    cvSetCaptureProperty(g_capture, CV_CAP_PROP_CONVERT_RGB, 1);
+    //This doesn't work.
+    //cvSetCaptureProperty(g_capture, CV_CAP_PROP_CONVERT_RGB, 1);
     return CAMSetMode(mode);
 }
 
@@ -79,6 +80,7 @@ int CAMGetFrame (BYTE *buf) {
         if (frame != NULL) {
             //cvShowImage("TEST", frame);
             //cvWaitKey(10);
+            cvCvtColor(frame, frame, CV_BGR2RGB);
             memcpy(buf, frame->imageData, frame->imageSize);
             return CAM_SUCCESS;
         }
