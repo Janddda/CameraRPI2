@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     
     printf("Camera mode: %d\n", CAMGetMode());
     for (int i = 0; i < 50; i++) {
-        if (CAMGetFrame(buf) != CAM_SUCCESS) {
+        if (CAMGet(buf) != CAM_SUCCESS) {
             printf("Failed to capture camera frame. (%d)\n", i+1);
         } else {
             printf("Got frame %d\n", i+1);

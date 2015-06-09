@@ -74,7 +74,7 @@ CAMMode CAMGetMode (void) {
     return g_mode;
 }
 
-int CAMGetFrame (BYTE *buf) {
+int CAMGet (BYTE *buf) {
     if (g_mode != CAM_NONE && g_capture != NULL) {
         IplImage *frame = cvQueryFrame(g_capture);
         if (frame != NULL) {

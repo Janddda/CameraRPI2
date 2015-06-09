@@ -13,7 +13,7 @@
 /** Failure code **/
 #define CAM_FAILURE 0
 
-typedef char BYTE;
+typedef unsigned char BYTE;
 
 /**
  * @brief The available camera modes.
@@ -75,7 +75,7 @@ extern CAMMode CAMGetMode (void);
  *  @details Retrieves the current camera frame and copies it into the
  *           supplied buffer. CAMInit must have been called previously.
  */
-extern int CAMGetFrame (BYTE *buf);
+extern int CAMGet (BYTE *buf);
 
 /**
  *  @brief Stops and releases all camera structures.
