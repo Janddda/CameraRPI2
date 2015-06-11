@@ -2,7 +2,7 @@
  *  @file camera_rpi2.c
  *  @brief Camera routines for the Raspberry Pi 2, modded for the EyeBot.
  *  Can be compiled with:
- *  gcc -std=c99 -Wall -pedantic `pkg-config --cflags opencv` *.c `pkg-config --libs opencv` -lm 
+ *  gcc -std=c99 -Wall -pedantic `pkg-config --cflags opencv` *.c `pkg-config --libs opencv` -lm -o camtest
  *  @author Jeremy Tan, 20933708 (HEXACOPTER GROUP) 
  */
 
